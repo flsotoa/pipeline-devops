@@ -28,7 +28,7 @@ def call(String seleccion){
 		case 'Run':
 			 stage("Run") {
 				sh "gradle bootRun &"
-			} break
+			}; break
 
 		case 'Sleep':
 			stage("Sleep") {
