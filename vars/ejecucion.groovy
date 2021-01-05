@@ -3,7 +3,6 @@
 	def ejecucion = load 'script.groovy'
 	ejecucion.call()
 */
-
 def call(){
 
 pipeline {
@@ -14,22 +13,19 @@ pipeline {
         stage('Pipeline') {
             steps {
                 script {
-
                          echo params.herramienta
 
                         if (params.herramienta == 'gradle') {
-                        def ejecucion = load 'gradle.groovy'
-                        ejecucion.call()
+                        gradle.call()
                         }
                         else {
-                         def ejecucion = load 'maven.groovy'
-                        ejecucion.call()
-				}
+                        maven.call()
 			}
-			}
+		     }		
 		}
-	   }
-	}	
+	    }
+	}
+    }	
 }
 
 return this;
