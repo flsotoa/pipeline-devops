@@ -33,22 +33,22 @@ def call(String seleccion){
 		case 'Sleep':
 			stage("Sleep") {
 				 sh 'sleep 200'
-			}break
+			}; break
 
 		case 'Tes_Rest':
 			stage("Tes_Rest") {
 				sh "curl -X GET localhost:8085/rest/mscovid/test?msg=testing -O  && dir"
-			}break
+			}; break
 
 		case 'uploadNexus':
 			stage("uploadNexus") {
 			nexusPublisher nexusInstanceId: 'Nexus',
 			nexusRepositoryId: 'test-nexus',
 			packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: 'jar', filePath: 'C:\\Users\\Flavio\\.jenkins\\workspace\\job-nexus\\DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '1.0.0']]]
-			} break
+			}; break
 		default:
 			println "Parametro ${item} incorrecto"
-			}
+			};
 		} 
 	catch(Exception e) {
 		println "Se produjo el error ${e}"}
