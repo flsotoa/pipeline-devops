@@ -68,12 +68,10 @@ pipeline {
 
                     if (params.HERRAMIENTA == 'Maven') {
                         //se definen los stages validos para maven
-                        def valid_stages_maven = ["build","test","jar","sonarqube","upload_nexus"]
+                        def valid_stages_maven = ["build","test","jar","sonarqube","run_jar", "test_app", "upload_nexus"]
                         //se separan los stages por punto y coma
                         def stagesLowercase = params.stage.tokenize(";").collect{ it.toLowerCase() }
-                        //se pasan los stages ingresados a minusculas
-                        //def stagesLowercase = stagesList.collect{ it.toLowerCase() }
-
+                        
                         for (String item : stagesLowercase) {
                             //si valida si el stage se encuentra dentro de los validos
                             if (!valid_stages_maven.contains(item)) {
@@ -92,8 +90,7 @@ pipeline {
                         //si se le pasa varios, se ejecutan secuencial y en orden coherente
                         } else {
                             //si build está en la lista todo OK hasta RUN
-                            //si build no está en la lista problemas !
-                            if (stagesLowercase.contains("build") || stagesLowercase.contains("jar")) {
+                                if (stagesLowercase.contains("build") || stagesLowercase.contains("jar")) {
                                 //si NO contiene RUN, pero si rest o nexus
                                 if ( (!stagesLowercase.contains("build") || !stagesLowercase.contains("jar"))  && 
                                     ( stagesLowercase.contains("sonarqube")  ||  stagesLowercase.contains("upload_nexus")  )) {
@@ -106,7 +103,6 @@ pipeline {
                                         println("Ejecutando stage maven => "+item);
                                         maven.call(item)
                                     }
-                                    //item.contains(stagesLowercase) ? gradle.call(item) : continue
                                 }
                             }else {
                                 env.ERROR_MESSAGE = "Primero es necesario ejecutar el stage build o test"
