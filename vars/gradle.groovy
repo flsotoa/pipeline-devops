@@ -2,7 +2,7 @@ def call(String seleccion){
     println "Stages recibidos: ${seleccion}"
 	println "Stages recibidos: ${seleccion}"
     
-	if (seleccion == '') {seleccion='build;test;sonar;run;rest;nexus'}
+	if (seleccion == '') {seleccion='Build_test;Sonar;Run;Sleep;Tes_Rest;uploadNexus'}
     
     String[] items = seleccion.toLowerCase().split(";")
 	
