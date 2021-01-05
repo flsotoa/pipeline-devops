@@ -5,7 +5,7 @@
 */
 
 def call(){
-        stage("Build & test") {
+        stage("Build_test") {
                 sh "gradle clean build"
                     }
         stage("SonarQube analysis") {
