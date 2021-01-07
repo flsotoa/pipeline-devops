@@ -12,10 +12,15 @@ pipeline {
         stage('Pipeline') {
             steps {
                 script {
-
+                    
+                    sh 'env'
+                    figlet 'hola'
+                    figlet 'DevOps Flavio'
+                    figlet params.HERRAMIENTA
+                    
                     env.JENKINS_STAGE = ''
                     env.ERROR_MESSAGE = ''
-
+                    
                     if (params.HERRAMIENTA == 'Gradle') {
                         //se definen los stages validos para gradle
                         def valid_stages_gradle = ["build","test","sonar","run","rest","nexus"]
