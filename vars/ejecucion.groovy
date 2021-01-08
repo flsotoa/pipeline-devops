@@ -12,7 +12,7 @@ def call(){
                         {
                             gradle-ci.call();
                         } else if(env.GIT_BRANCH.contains('release')) {
-                            gradle-ci.call();
+                            gradle-cd.call();
                         } else {
                         }
                     }
