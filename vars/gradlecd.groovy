@@ -9,7 +9,7 @@ def call() {
 
     stage('runDownloadedJar') {
             sh "gradle bootRun &"
-            sh 'sleep 100'
+            sh 'sleep 200'
     }
 
     stage('rest') {
