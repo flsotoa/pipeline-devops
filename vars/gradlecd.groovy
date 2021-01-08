@@ -1,5 +1,5 @@
 def call() {
-    figlet env.GIT_BRANCH
+
     figlet 'Continuous-Delivery'
 
     stage("downloadNexus"){     
