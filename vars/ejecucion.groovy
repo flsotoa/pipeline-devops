@@ -17,6 +17,7 @@ pipeline {
                     figlet 'DevOps - Flavio'
                     figlet params.HERRAMIENTA
                     figlet env.GIT_BRANCH
+                    figlet env.JOB_NAME
                     
                     env.JENKINS_STAGE = ''
                     env.ERROR_MESSAGE = ''
