@@ -19,7 +19,7 @@ def call(){
                         {
                          gradleci.call()
                         }
-                        if(env.GIT_BRANCH.contains('realease'))
+                        if(env.GIT_BRANCH.contains('release'))
                         {
                          gradlecd.call()
                         }
