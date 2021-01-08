@@ -13,13 +13,15 @@ def call(){
                         
                         if(env.GIT_BRANCH =='develop')
                         {
-                         gradle-ci.call()
+                         gradleci.call()
                         } 
                         if(env.GIT_BRANCH.contains('feature'))
                         {
-                         gradle-ci.call()
-                        } else { 
-                         gradle-cd.call()
+                         gradleci.call()
+                        }
+                        if(env.GIT_BRANCH.contains('realease'))
+                        {
+                         gradlecd.call()
                         }
                     }
                 }
