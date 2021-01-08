@@ -10,9 +10,9 @@ def call(){
                         
                         if(env.GIT_BRANCH=='develop' || env.GIT_BRANCH.contains('feature'))
                         {
-                            gradleCI.call();
+                            gradle-ci.call();
                         } else if(env.GIT_BRANCH.contains('release')) {
-                            gradleCD.call();
+                            gradle-ci.call();
                         } else {
                         }
                     }
