@@ -4,7 +4,6 @@ def call() {
 
     stage("downloadNexus"){     
         bat 'curl -X GET -u admin:admin http://localhost:8081/repository/test-nexus/com/devopsusach2020/DevOpsUsach2020/0.0.1/DevOpsUsach2020-0.0.1.jar -O' 
-        downloadOK = true;
     }
 
     stage('runDownloadedJar') {
