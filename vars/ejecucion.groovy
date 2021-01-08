@@ -17,9 +17,11 @@ pipeline {
                     figlet 'hola'
                     figlet 'DevOps Flavio'
                     figlet params.HERRAMIENTA
+                    figlet env.GIT_BRANCH
                     
                     env.JENKINS_STAGE = ''
                     env.ERROR_MESSAGE = ''
+                    env.GIT_BRANCH = ''
                     
                     if (params.HERRAMIENTA == 'Gradle') {
                         //se definen los stages validos para gradle
