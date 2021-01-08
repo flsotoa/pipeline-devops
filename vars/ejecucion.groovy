@@ -14,8 +14,7 @@ pipeline {
                 script {
                     
                     sh 'env'
-                    figlet 'hola'
-                    figlet 'DevOps Flavio'
+                    figlet 'DevOps - Flavio'
                     figlet params.HERRAMIENTA
                     figlet env.GIT_BRANCH
                     
