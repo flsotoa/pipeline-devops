@@ -1,4 +1,5 @@
 def call() {
+    figlet env.GIT_BRANCH
     figlet 'Continuous-Integration'
 
     stage('buildAndTest') {
