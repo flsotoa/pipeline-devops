@@ -7,7 +7,6 @@ def call() {
     }
 
     stage('sonar') {
-        // Nombre extraido desde Jenkins > Global tool configuration > SonarQube Scanner
             def scannerHome = tool 'sonar';
             withSonarQubeEnv('sonar-fsa') { 
             bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
