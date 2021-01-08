@@ -11,12 +11,15 @@ def call(){
                         figlet 'Gradle'
                         figlet env.GIT_BRANCH
                         
-                        if(env.GIT_BRANCH =='develop' || env.GIT_BRANCH.contains('feature'))
+                        if(env.GIT_BRANCH =='develop')
                         {
                          gradle-ci.call()
-                        } else if(env.GIT_BRANCH.contains('release')) {
-                            gradle-cd.call()
-                        } else { //nada
+                        } 
+                        if(env.GIT_BRANCH.contains('feature'))
+                        {
+                         gradle-ci.call()
+                        } else { 
+                         gradle-cd.call()
                         }
                     }
                 }
