@@ -18,10 +18,10 @@ pipeline {
                         else {
                          def ejecucion = load 'maven.groovy'
                         ejecucion.call()
-				}
-			}
-			}
-		}
+				        }
+			        }
+			    }
+	    	}
 	   }
 	}	
 }
