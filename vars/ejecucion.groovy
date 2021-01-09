@@ -22,10 +22,10 @@ pipeline {
                         //se separan los stages por punto y coma
                         def stagesLowercase = params.stage.tokenize(";").collect{ it.toLowerCase() }
                         //se pasan los stages ingresados a minusculas
-                        //def stagesLowercase = stagesList.collect{ it.toLowerCase() }
 
-                        for (String item : stagesLowercase) {
-                            //si valida si el stage se encuentra dentro de los validos
+                        for (String item : stagesLowercase) 
+                        {
+                            //se valida si el stage se encuentra dentro de los validos
                             if (!valid_stages_gradle.contains(item)) {
                                 env.ERROR_MESSAGE = "El stage ${item} no es valido para proyecto gradle"
                                 error(env.ERROR_MESSAGE)
